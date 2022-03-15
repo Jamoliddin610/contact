@@ -23,10 +23,14 @@
     <label for="exampleInput2" class="form-label">surname:</label>
     <input type="text" class="form-control" id="exampleInput2" required>
   </div>
-  <div class="mb-3">
-    <label for="exampleInput3" class="form-label">Who is for you:</label>
-    <input type="text" class="form-control" id="exampleInput3" required>
-  </div>
+      <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Who is for you:</label>
+      <select id="disabledSelect" class="form-select">
+        <option>Relative</option>
+        <option>Friends</option>
+        <option>Workmates</option>
+      </select>
+    </div>
   <div class="mb-4">
     <label for="exampleInput4" class="form-label">Phone:</label>
     <input type="number" class="form-control" id="exampleInput4" required>
@@ -39,13 +43,36 @@
         <button id="all" class="btn btn-primary">All</button>
         <button id="relative" class="btn btn-primary">Relative</button>
         <button id="friends" class="btn btn-primary">Friends</button>
-        <button id="workmate" class="btn btn-primary">Workmates</button>
+        <button id="workmates" class="btn btn-primary">Workmates</button>
       </div>
-      <ul id="wrapperList">
+      <ul id="wrapperList" >
         <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
           <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
             <h2 class="wrapper__name fw-bolder">Najmidddinov Jamoliddidn</h2>
-            <p class="wrapper__tel">+998935716390</p>
+            <div class="wrapper__about-inner d-flex align-items-center">
+              <span class="wrapper__tel me-3">+998935716390</span>
+            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">Relative</p>
+            </div>
+          </div>
+          <a href="tel:+998905716390" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
+        </li>
+        <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
+          <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
+            <h2 class="wrapper__name fw-bolder">Najmidddinov Jamoliddidn</h2>
+            <div class="wrapper__about-inner d-flex align-items-center">
+              <span class="wrapper__tel me-3">+998935716390</span>
+            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">Friends</p>
+            </div>
+          </div>
+          <a href="tel:+998905716390" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
+        </li>
+        <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
+          <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
+            <h2 class="wrapper__name fw-bolder">Najmidddinov Jamoliddidn</h2>
+            <div class="wrapper__about-inner d-flex align-items-center">
+              <span class="wrapper__tel me-3">+998935716390</span>
+            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">Workmates</p>
+            </div>
           </div>
           <a href="tel:+998905716390" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
         </li>
