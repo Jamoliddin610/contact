@@ -1,88 +1,60 @@
-let form = document.querySelector("form");
-
-let name = document.getElementById("exampleInput1");
-let surname = document.getElementById("exampleInput2");
-let relative = document.getElementById("disabledSelect");
-let phone = document.getElementById("exampleInput4");
-let relavBtn = document.getElementById("relative");
-let list = document.getElementById("wrapperList");
-let allBtn = document.getElementById("all");
-let friendBtn = document.getElementById("friends")
-let workmateBtn = document.getElementById("workmates")
+const elForm = document.querySelector("#form")
+const elBtnGroup = document.querySelector('#btn-group')
+const elListGroup = document.querySelector("#wrapperList")
+let elFirstInput = document.querySelector("#exampleInput1")
+let elSecondInput = document.querySelector("#exampleInput2")
+let elThridInput = document.querySelector("#exampleInput3")
+let elFourInput = document.querySelector("#exampleInput4")
 
 
 
+let newArr = []
+let newListArr = []
 
-form.addEventListener('submit',(e)=>{
-    e.preventDefault()
-    let firstname = name.value;
-    let secondname = surname.value;
-    let relative_ch = relative.value;
-    let tel = phone.value;
-    let li = document.createElement('li');
-    li.className = 'wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center'
-    li.innerHTML = `<div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
-            <h2 class="wrapper__name fw-bolder">${secondname+" "+firstname} </h2>
+elForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    newArr.push({
+        name:elFirstInput.value,
+        surname:elSecondInput.value,
+        person:elThridInput.value,
+        phone:elFourInput.value,
+    })
+    newListArr = newArr.map((items)=>{
+        return `<li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
+          <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
+            <h2 class="wrapper__name fw-bolder">${items.name}  ${items.surname}</h2>
             <div class="wrapper__about-inner d-flex align-items-center">
-              <span class="wrapper__tel me-3">+998 ${tel}</span>
-            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">${relative_ch}</p>
+              <span class="wrapper__tel me-3">+998${items.phone}</span>
+            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">${items.person}</p>
             </div>
           </div>
-          <a href="tel:${tel}" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>`
-    list.appendChild(li)
+          <a href="tel:+998${items.phone}" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
+        </li>`
+    })
+    elListGroup.innerHTML = newListArr.join("")
+    console.log(newArr);
 
-
-
-    name.value="";
-    surname.value = "";
-    relative.value = "";
-    phone.value = "";
-
-});
-
-
-
-relavBtn.addEventListener("click", () => {
-    let text = document.querySelectorAll('.wrapper__wh')
-        for (let i = 0; i < text.length; i++) {
-            if(text[i].textContent == relavBtn.textContent){
-                text[i].parentNode.parentNode.parentNode.className = 'wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center'
-            }
-            else{
-                text[i].parentNode.parentNode.parentNode.className = 'd-none'
-            }
-        }
-    
+    (elFirstInput.value = ""),(elSecondInput.value = ""),(elThridInput.value = ""),(elFourInput.value = "");
 })
+elBtnGroup.addEventListener('click',(e)=>{
+    let newTypeArr = newArr.filter((item)=>{
+        return item.person == e.target.textContent;
+    });
+    if (e.target.textContent == "All") {
+        newTypeArr = newArr;
 
-friendBtn.addEventListener("click", () => {
-    let text = document.querySelectorAll('.wrapper__wh')
-    for (let i = 0; i < text.length; i++) {
-        if (text[i].textContent == friendBtn.textContent) {
-            text[i].parentNode.parentNode.parentNode.className = 'wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center'
-        }
-        else {
-            text[i].parentNode.parentNode.parentNode.className = 'd-none'
-        }
     }
-
-})
-workmateBtn.addEventListener("click", () => {
-    let text = document.querySelectorAll('.wrapper__wh')
-    for (let i = 0; i < text.length; i++) {
-        if (text[i].textContent == workmateBtn.textContent) {
-            text[i].parentNode.parentNode.parentNode.className = 'wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center'
-        }
-        else {
-            text[i].parentNode.parentNode.parentNode.className = 'd-none'
-        }
-    }
-
-})
-
-allBtn.addEventListener('click',()=>{
-    let li = document.querySelectorAll('li')
-    for (let i = 0; i < li.length; i++) {
-        li[i].className = 'wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center'
-    }
+    let newListArray = newTypeArr.map((item)=>{
+        return `<li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
+          <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
+            <h2 class="wrapper__name fw-bolder">${item.name}  ${item.surname}</h2>
+            <div class="wrapper__about-inner d-flex align-items-center">
+              <span class="wrapper__tel me-3">+998${item.phone}</span>
+            <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">${item.person}</p>
+            </div>
+          </div>
+          <a href="tel:+998${item.phone}" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
+        </li>`
+    })
+    elListGroup.innerHTML = newListArray.join("")
 })

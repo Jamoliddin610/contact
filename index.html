@@ -14,7 +14,7 @@
 <body>  
   <div class="box">
     <div class="wrapper border-primary">
-<form>
+<form id="form">
   <div class="mb-3">
     <label for="exampleInput1" class="form-label">name:</label>
     <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp" required>
@@ -25,11 +25,14 @@
   </div>
       <div class="mb-3">
       <label for="disabledSelect" class="form-label">Who is for you:</label>
-      <select id="disabledSelect" class="form-select">
+      <input type="text" class="form-control" id="exampleInput3" list="date" required>
+      <datalist id="date">
         <option>Relative</option>
         <option>Friends</option>
         <option>Workmates</option>
-      </select>
+
+      </datalist>
+
     </div>
   <div class="mb-4">
     <label for="exampleInput4" class="form-label">Phone:</label>
@@ -46,7 +49,7 @@
         <button id="workmates" class="btn btn-primary">Workmates</button>
       </div>
       <ul id="wrapperList" >
-        <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
+        <!-- <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
           <div class="wrapper__about align-items-start justify-content-center d-flex flex-column">
             <h2 class="wrapper__name fw-bolder">Najmidddinov Jamoliddidn</h2>
             <div class="wrapper__about-inner d-flex align-items-center">
@@ -63,7 +66,7 @@
               <span class="wrapper__tel me-3">+998935716390</span>
             <p class="wrapper__wh text-primary fw-bolder text-lowercase p-0 m-0">Friends</p>
             </div>
-          </div>
+          </div> 
           <a href="tel:+998905716390" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
         </li>
         <li class="wrapper__items d-flex justify-content-between border-bottom border-primary align-items-center">
@@ -75,7 +78,7 @@
             </div>
           </div>
           <a href="tel:+998905716390" class="bg-success d-flex align-items-lg-center justify-content-center text-decoration-none wrapper__link">Call</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
